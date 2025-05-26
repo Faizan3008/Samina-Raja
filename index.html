@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samina Raja - Education Professional Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .navbar {
+            background-color: rgba(44, 62, 80, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: var(--secondary-color);
+            padding: 10px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: linear-gradient(-45deg, #3498db, #2c3e80, #e74c3c, #2c3e50);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 120px 0 100px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            transition: width 0.5s ease;
+        }
+        
+        .section-title:hover:after {
+            width: 100px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 30px;
+            height: 100%;
+            overflow: hidden;
+            transform: translateY(0);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover .card-header {
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+            animation: lineGrow 2s ease-out forwards;
+        }
+        
+        @keyframes lineGrow {
+            from { height: 0; }
+            to { height: 100%; }
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 4px var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover:before {
+            transform: scale(1.2);
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-date {
+            color: var(--accent-color);
+        }
+        
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .skills-list li {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+            transition: width 1.5s ease;
+            width: 0;
+        }
+        
+        .contact-info {
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info:hover {
+            transform: translateX(10px);
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info:hover i {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px) scale(1.2);
+        }
+        
+        .project-highlight {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-highlight:hover {
+            border-left-color: var(--accent-color);
+            transform: translateX(10px);
+        }
+        
+        .expertise-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .expertise-badge:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .img-border {
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+        }
+        
+        .img-border:hover {
+            transform: rotate(-5deg) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Particle animation for hero section */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+        
+        .particles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+        
+        .particles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+        
+        .particles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+        
+        .particles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+        
+        .particles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+        
+        .particles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+        
+        .particles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+        
+        .particles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+        
+        .particles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+        
+        .particles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+        
+        /* Pulse animation for CTA */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid var(--primary-color);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .section-title:after {
+                width: 40px;
+            }
+            
+            .section-title:hover:after {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand animate__animated animate__fadeInLeft" href="#">Samina Raja</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link animate__animated animate__fadeInDown" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link animate__animated animate__fadeInDown" href="#expertise">Expertise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link animate__animated animate__fadeInDown" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link animate__animated animate__fadeInDown" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link animate__animated animate__fadeInDown" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link animate__animated animate__fadeInDown" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </div>
+        <div class="container text-center hero-content">
+            <h1 class="animate__animated animate__fadeInDown animate__delay-1s">Samina Raja</h1>
+            <p class="lead animate__animated animate__fadeIn animate__delay-2s">Dedicated Education Professional with 20+ Years of Leadership Experience</p>
+            <div class="mt-4 animate__animated animate__fadeInUp animate__delay-3s">
+                <span class="expertise-badge">Educational Leadership</span>
+                <span class="expertise-badge">Program Management</span>
+                <span class="expertise-badge">Curriculum Development</span>
+                <span class="expertise-badge">Teacher Training</span>
+            </div>
+            <a href="#contact" class="btn btn-primary mt-4 animate__animated animate__fadeInUp animate__delay-4s pulse">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="lead">Dedicated, resourceful education professional with proven ability to create and monitor policies and practices that promote a safe learning environment.</p>
+                    <p>Experienced in mentoring educators in the creation and implementation of class instruction, lesson plans, and student assessment in conjunction with state learning regulations.</p>
+                    
+                    <div class="mt-4">
+                        <div class="contact-info">
+                            <i class="fas fa-phone"></i> 0333-5872345
+                        </div>
+                        <div class="contact-info">
+                            <i class="fas fa-envelope"></i> samina-raja@hotmail.com
+                        </div>
+                        <div class="contact-info">
+                            <i class="fas fa-map-marker-alt"></i> House # 492, Street 19, Sector A, Askari 14, RWP
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="#projects" class="btn btn-outline-primary me-2">View Projects</a>
+                        <a href="#contact" class="btn btn-primary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <img src="me.jpg" alt="Samina Raja" class="img-fluid rounded img-border floating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Areas of Expertise</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-header">Educational Leadership</div>
+                        <div class="card-body">
+                            <ul class="skills-list">
+                                <li>
+                                    <div class="skill-name">Strategic Visioning & Direction Setting</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 95%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="skill-name">Program Leadership & Management</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="skill-name">Comprehensive Pedagogical Knowledge</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 92%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-header">Professional Skills</div>
+                        <div class="card-body">
+                            <ul class="skills-list">
+                                <li>
+                                    <div class="skill-name">Training & Development</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 88%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="skill-name">Team Motivation & Management</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 85%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="skill-name">Stakeholder Engagement</div>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <h4>Project Director, International Mathematics Olympiad</h4>
+                    <p class="timeline-date">2023 - Present | SKANS Schools, Rawalpindi</p>
+                    <ul>
+                        <li>Organizational Leadership: Oversee the entire IMO event</li>
+                        <li>Global Coordination: Manage international teams and logistics</li>
+                        <li>Problem Selection: Choose challenging math problems</li>
+                        <li>Event Quality: Ensure high standards of competition</li>
+                        <li>Stakeholder Engagement: Collaborate with math organizations worldwide</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <h4>Regional Director</h4>
+                    <p class="timeline-date">2018 - Present | SKANS School System, Rawalpindi</p>
+                    <ul>
+                        <li>Provide strategic direction in the school system</li>
+                        <li>Develop standardized curriculum</li>
+                        <li>Assess teaching methods, monitor student achievement, encourage parent involvement, revise policies and procedures</li>
+                        <li>Administer the budget, hire and evaluate staff</li>
+                        <li>Ensure facilities and develop resources</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <h4>Regional Subject Coordinator/Coordinator Matric Schools</h4>
+                    <p class="timeline-date">2018 | The City School, Islamabad</p>
+                    <ul>
+                        <li>Curriculum development/review</li>
+                        <li>Quality assurance in learning and teaching NR schools</li>
+                        <li>Teacher Training</li>
+                        <li>Analyzing NR Schools Results</li>
+                        <li>Developing Subject Development Plan</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <h4>Examination Coordinator Northern Region</h4>
+                    <p class="timeline-date">2017-2018 | The City School Islamabad</p>
+                    <ul>
+                        <li>Ensuring preparation of quality unified examination</li>
+                        <li>Training teachers for setting quality examination papers</li>
+                        <li>Planning and coordinating with schools the smooth execution of examination</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <h4>Headmistress</h4>
+                    <p class="timeline-date">2013-2017 | The City School Senior Section, Satellite Town Campus Rawalpindi</p>
+                    <ul>
+                        <li>Hiring the required manpower</li>
+                        <li>Drafting the School Development Plan to achieve academic excellence</li>
+                        <li>Counseling students for academic, personal guidance</li>
+                        <li>Plan and organize extracurricular activities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Recent Projects</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-header">International Mathematics Olympiad</div>
+                        <div class="card-body">
+                            <div class="project-highlight">
+                                <h5>Project Director</h5>
+                                <p>SKANS International Islamic Schools</p>
+                            </div>
+                            <ul>
+                                <li>Led the organization of Pakistan's premier mathematics competition for school students</li>
+                                <li>Coordinated with international mathematics organizations to align standards</li>
+                                <li>Developed challenging problem sets to identify top mathematical talent</li>
+                                <li>Managed logistics for national-level competition with 500+ participants</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-header">Robotics Education Initiative</div>
+                        <div class="card-body">
+                            <div class="project-highlight">
+                                <h5>Program Leader</h5>
+                                <p>SKANS School System</p>
+                            </div>
+                            <ul>
+                                <li>Implemented robotics curriculum across 15 schools in the SKANS network</li>
+                                <li>Trained 50+ teachers in robotics instruction and competition coaching</li>
+                                <li>Organized inter-school robotics competitions with 300+ student participants</li>
+                                <li>Integrated robotics with STEM curriculum to enhance practical learning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card">
+                        <div class="card-header">Computer Languages Program</div>
+                        <div class="card-body">
+                            <div class="project-highlight">
+                                <h5>Curriculum Developer</h5>
+                                <p>SKANS International Islamic Schools</p>
+                            </div>
+                            <ul>
+                                <li>Designed age-appropriate computer programming curriculum for grades 6-12</li>
+                                <li>Introduced Python, JavaScript and block-based programming courses</li>
+                                <li>Established coding clubs in 10 schools with 200+ regular participants</li>
+                                <li>Partnered with tech companies for student mentorship programs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-5">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Education & Qualifications</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-header">Academic Qualifications</div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <strong>2018-2021</strong> - Program Leader Qualification for CTDT, Cambridge UK
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>2019-2020</strong> - Core Skills Trainer, British Council UK
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>2012</strong> - Primary Years Education from WAIKATO University, New Zealand
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>2002</strong> - Post Graduate Diploma Course from Strathclyde University, Glasgow, Scotland
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>2000</strong> - Post Graduate Certificate Course from Strathclyde University, Glasgow, Scotland
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>1992</strong> - Bachelors of the Arts, The University of the Karachi
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-header">Workshops & Training</div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Accredited Program Leader for Cambridge Professional Development Qualifications</li>
+                                <li class="list-group-item">Conducted training sessions for Professional Development Qualification TDT Cohort 2018</li>
+                                <li class="list-group-item">Successfully completed validation process for British Council Core Skills trainer</li>
+                                <li class="list-group-item">Conducted and attended numerous workshops on teaching and management skills</li>
+                                <li class="list-group-item">Regular participant in international education conferences and seminars</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="zoom-in">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4 class="mb-4">Contact Information</h4>
+                            <div class="contact-info">
+                                <i class="fas fa-phone"></i> 0333-5872345
+                            </div>
+                            <div class="contact-info">
+                                <i class="fas fa-envelope"></i> samina-raja@hotmail.com
+                            </div>
+                            <div class="contact-info">
+                                <i class="fas fa-map-marker-alt"></i> House # 492, Street 19, Sector A, Askari 14, RWP
+                            </div>
+                            <hr>
+                            <!-- <h5 class="mt-4">Connect With Me</h5> -->
+                            <div class="social-links mt-3">
+                                <a href="https://www.linkedin.com/in/samina-raja-605aa4167/"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://www.linkedin.com/in/samina-raja-605aa4167/"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/samina.raja1"><i class="fab fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/samina.raja1"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            
+                            <!-- <form class="mt-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Samina Raja. All Rights Reserved.</p>
+            <p>Dedicated Education Professional with Passion for Excellence</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animate progress bars when they come into view
+        const progressBars = document.querySelectorAll('.progress-bar');
+        
+        const animateProgressBars = () => {
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        };
+        
+        // Intersection Observer for progress bars
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        // Observe the expertise section
+        const expertiseSection = document.querySelector('#expertise');
+        if (expertiseSection) {
+            observer.observe(expertiseSection);
+        }
+        
+        // Animate timeline items when they come into view
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        const observerTimeline = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observerTimeline.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        timelineItems.forEach(item => {
+            observerTimeline.observe(item);
+        });
+        
+        // Particles animation
+        const particles = document.querySelector('.particles');
+        if (particles) {
+            for (let i = 0; i < 10; i++) {
+                const li = document.createElement('li');
+                particles.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
